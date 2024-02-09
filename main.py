@@ -10,7 +10,6 @@ mp_drawing = mp.solutions.drawing_utils
 mp_drawing_styles = mp.solutions.drawing_styles
 mp_hands = mp.solutions.hands
 w, h = 720, 360 
-
 camera01 = cv2.VideoCapture(0)
 with mp_hands.Hands(
     model_complexity=0,

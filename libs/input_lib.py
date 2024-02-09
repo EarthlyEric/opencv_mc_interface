@@ -1,11 +1,6 @@
 import pydirectinput as input
 # Key STATUS
 
-
-
-global a
-a=False
-
 def hand1_pos_solver(finger_angle):
     f1 = finger_angle[0]   
     f2 = finger_angle[1]   
@@ -26,10 +21,7 @@ def hand1_pos_solver(finger_angle):
         input.keyDown("d")
         print("d")
     elif f1>=50 and f2>=50 and f3>=50 and f4>=50 and f5>=50:
-        input.mouseDown(button="left")
-    elif f1<50 and f2>=50 and f3>=50 and f4>=50 and f5>=50:
-        input.keyDown("e")
-        print("e")
+        input.mouseDown(button="left") 
     elif f1<50 and f2<50 and f3<50 and f4<50 and f5<50:
         input.keyUp("w")
         input.keyUp("a")

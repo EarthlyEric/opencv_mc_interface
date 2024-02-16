@@ -2,7 +2,7 @@ import tkinter as tk
 from main import boot
 
 def power_on_action():
-    
+    pass
     
 def exit_action():
     app.destroy()

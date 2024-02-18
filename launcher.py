@@ -14,26 +14,14 @@ def test_env():
 
     return True
 
-def update_output(output_text, process):
-    for line in iter(process.stdout.readline, b''):
-        output_text.insert("end", line)
-        output_text.see("end")
-    process.stdout.close()
-
 def power_on_action():
-    output_window = tk.Toplevel(app)
-    output_window.title("Output Log")
-    output_text = tk.Text(output_window)
-    output_text.pack(expand=True, fill="both")
     global process
     process = subprocess.Popen(['python', 'main.py'], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, universal_newlines=True)
-    output_thread = threading.Thread(target=update_output, args=(output_text, process), daemon=True)
-    output_thread.start()
 
-    
+def stop_action():
+    process.kill()   
     
 def exit_action():
-    process.kill()
     app.destroy()
 
 app = tk.Tk()
@@ -54,9 +42,11 @@ environment.pack()
 poweron = tk.Button(widget_bg, text="POWER ON CAMERA",command=power_on_action)
 poweron.pack(side="left")
 
+stop = tk.Button(app, text="STOP",command=stop_action)
+stop.pack()
+
 exit = tk.Button(app, text="EXIT",command=exit_action)
 exit.pack()
-
 
 environment['text']="Environment: READY !"
 if not test_env():

@@ -27,6 +27,7 @@ def hand1_pos_solver(finger_angle):
         input.keyUp("a")
         input.keyUp("s")
         input.keyUp("d")
+        input.mouseUp(button="left") 
         print("CLEAR")
         
 
